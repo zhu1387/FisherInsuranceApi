@@ -1,7 +1,18 @@
+using FisherInsuranceApi.Data;
 using Microsoft.AspNetCore.Mvc;
 [Route("api/claims/quotes")]
 public class ClaimsController : Controller
-{ 
+{   private IMemoryStore db;
+    public ClaimsController(IMemoryStore repo)
+    {
+    db = repo;
+    }
+
+    [HttpGet]
+    public IActionResult GetQuotes()
+    {
+        return Ok(db.RetrieveAllQuotes);
+    }
 
     // POST api/claims/quotes
     [HttpPost]
