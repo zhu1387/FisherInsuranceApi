@@ -2,7 +2,8 @@ using FisherInsuranceApi.Data;
 using Microsoft.AspNetCore.Mvc;
 [Route("api/claims/quotes")]
 public class ClaimsController : Controller
-{   private IMemoryStore db;
+{   
+    private IMemoryStore db;
     public ClaimsController(IMemoryStore repo)
     {
     db = repo;
