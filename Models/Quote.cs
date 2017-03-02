@@ -7,5 +7,6 @@ namespace FisherInsuranceApi.Models
     public string Product { get; set; }
     public DateTime ExpireDate { get; set; }
     public decimal Price { get; set; }
+    
     }
 }
