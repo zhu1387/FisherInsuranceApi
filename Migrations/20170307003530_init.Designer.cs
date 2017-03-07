@@ -8,7 +8,7 @@ using FisherInsuranceApi.Data;
 namespace FisherInsuranceApi.Migrations
 {
     [DbContext(typeof(FisherContext))]
-    [Migration("20170301233701_init")]
+    [Migration("20170307003530_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,6 +33,22 @@ namespace FisherInsuranceApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Claims");
+                });
+
+            modelBuilder.Entity("FisherInsuranceApi.Models.Quote", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("ExpireDate");
+
+                    b.Property<decimal>("Price");
+
+                    b.Property<string>("Product");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Quotes");
                 });
         }
     }

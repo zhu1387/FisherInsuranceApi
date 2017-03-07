@@ -33,6 +33,22 @@ namespace FisherInsuranceApi.Migrations
 
                     b.ToTable("Claims");
                 });
+
+            modelBuilder.Entity("FisherInsuranceApi.Models.Quote", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("ExpireDate");
+
+                    b.Property<decimal>("Price");
+
+                    b.Property<string>("Product");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Quotes");
+                });
         }
     }
 }

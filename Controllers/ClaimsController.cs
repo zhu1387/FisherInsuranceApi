@@ -17,7 +17,7 @@ public class ClaimsController : Controller
         return Ok(db.Claims);
     }
     
-    // POST api/claims/quotes
+    // POST api/claims/
     [HttpPost]
     public IActionResult Post([FromBody] Claim claim)
     {
@@ -26,14 +26,14 @@ public class ClaimsController : Controller
         return CreatedAtRoute("GetClaim", new { id = claim.Id }, claim);
     }
 
-    // GET api/claims/quotes/5
+    // GET api/claims/id
     [HttpGet("{id}", Name = "GetClaim")]
     public IActionResult Get(int id)
     {
         return Ok(db.Claims.Find(id));
     }
 
-    // PUT api/claims/quotes/id
+    // PUT api/claims/id
     [HttpPut("{id}")]
     public IActionResult Put(int id, [FromBody] Claim claim)
     {
@@ -47,7 +47,7 @@ public class ClaimsController : Controller
         return Ok(newClaim);
     }
 
-    // DELETE api/claims/quotes/id
+    // DELETE api/claims/id
     [HttpDelete("{id}")]
     public IActionResult Delete(int id)
     {
