@@ -2,27 +2,33 @@
     <div class='navbar navbar-inverse'>
         <div class='navbar-header'>
             <button type='button' class='navbar-toggle' data-toggle='collapse' datatarget='.navbar-collapse'>
-                <span class='sr-only'>Toggle navigation</span>
-                <span class='icon-bar'></span>
-                <span class='icon-bar'></span>
-                <span class='icon-bar'></span>
-            </button>
+<span class='sr-only'>Toggle navigation</span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
             <a class="navbar-brand" [routerLink]="['/']">Fisher Insurance</a>
         </div>
         <div class='clearfix'></div>
         <div class='navbar-collapse collapse'>
             <ul class='nav navbar-nav'>
-                    <li >
-                    <a [routerLink]="['']"><span class='glyphicon glyphicon-home'></span> Home</a>
+                <li>
+                    <a [routerLink]="['']">
+                        <span class='glyphicon glyphicon-home'></span> Home
+                    </a>
                 </li>
-                <li >
-                    <a [routerLink]="['quotes']"><span class='glyphicon glyphicon glyphicon-index'></span> Quotes</a>
+                <li>
+                    <a [routerLink]="['quotes']">
+                        <span class='glyphicon glyphicon glyphicon-inbox'></span> Quotes
+                    </a>
                 </li>
-                <li >
-                    <a [routerLink]="['claims']"><span class='glyphicon glyphicon-list-alt'></span> Claims</a>
+                <li>
+                    <a [routerLink]="['claims']">
+                        <span class='glyphicon glyphicon-list-alt'></span> Claims
+                    </a>
                 </li>
                 <li *ngIf="!authService.isLoggedIn()" [class.active]="isActive(['login'])">
-                    <a class="login" [routerLink]="['login']"> Login</a>
+                    <a class="login" [routerLink]="['login']">Login</a>
                 </li>
                 <li *ngIf="authService.isLoggedIn()">
                     <a class="logout" href="javascript:void(0)" (click)="logout()">Logout</a>
@@ -33,4 +39,3 @@
             </ul>
         </div>
     </div>
-</div>

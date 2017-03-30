@@ -1,7 +1,8 @@
 import {Injectable, EventEmitter} from "@angular/core"; 
 import {Http, Headers, Response, RequestOptions} from "@angular/http"; 
-import {Observable} from "rxjs/Observable";
+
 import { AuthHttp } from "./auth.http";
+import {Observable} from "rxjs/Observable";
 
 @Injectable() 
 export class AuthService { 
@@ -84,4 +85,4 @@ export class AuthService {
     isLoggedIn(): boolean { 
         return localStorage.getItem(this.authKey) != null; 
     } 
-} 
+}
