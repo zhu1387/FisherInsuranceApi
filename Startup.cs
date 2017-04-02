@@ -1,3 +1,4 @@
+using System;
 using FisherInsuranceApi.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -38,11 +39,12 @@ namespace FisherInsuranceApi
             .AddDefaultTokenProviders();
 
             services.AddDbContext<FisherContext>();
+            services.AddSingleton<DbSeeder>();
 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, DbSeeder dbSeeder)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
@@ -75,6 +77,14 @@ namespace FisherInsuranceApi
             //app.UseCookieAuthentication();
 
             app.UseMvc();
+            try
+            {
+                dbSeeder.SeedAsync().Wait();
+            }
+            catch (AggregateException e)
+            {
+                throw new Exception(e.ToString());
+            }
         }
 
     }
