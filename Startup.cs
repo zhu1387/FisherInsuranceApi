@@ -1,12 +1,12 @@
 using FisherInsuranceApi.Data;
-using FisherInsuranceApi.Security;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using FisherInsuranceApi.Security;
 
 namespace FisherInsuranceApi
 {
@@ -27,9 +27,7 @@ namespace FisherInsuranceApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddMvc();
-
             services.AddIdentity<ApplicationUser, IdentityRole>(config =>
             {
                 config.User.RequireUniqueEmail = true;
@@ -40,7 +38,7 @@ namespace FisherInsuranceApi
             .AddDefaultTokenProviders();
 
             services.AddDbContext<FisherContext>();
-            
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -78,5 +76,6 @@ namespace FisherInsuranceApi
 
             app.UseMvc();
         }
+
     }
 }

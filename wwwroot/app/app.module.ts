@@ -3,8 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AuthService } from "./auth.service";
-import { AuthHttp } from "./auth.http";
 import 'rxjs/Rx';
 
 import { AppComponent } from './app.component';
@@ -15,6 +13,9 @@ import { ClaimsComponent } from './components/claims/claims.component';
 import { QuotesComponent } from './components/quotes/quotes.component';
 
 import { AppRouting } from './app.routing';
+import { AuthService } from "./auth.service";
+import { AuthHttp } from "./auth.http";
+
 
 @NgModule({
     declarations: [
@@ -32,14 +33,10 @@ import { AppRouting } from './app.routing';
         ReactiveFormsModule,
         RouterModule,
         AppRouting
-        
-
     ],
     providers: [
-     
-    AuthService,
-    AuthHttp
-
+        AuthService,
+        AuthHttp
     ],
     bootstrap: [
         AppComponent
