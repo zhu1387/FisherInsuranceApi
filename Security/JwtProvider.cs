@@ -31,8 +31,7 @@ namespace FisherInsuranceApi.Security
         public JwtProvider(RequestDelegate next, FisherContext db, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
         {
             _next = next;
-
-           
+  
             this.db = db;
             UserManager = userManager;
             SignInManager = signInManager;
@@ -75,7 +74,7 @@ namespace FisherInsuranceApi.Security
                 string username = httpContext.Request.Form["username"];
                 string password = httpContext.Request.Form["password"];
 
-                //check username
+                //check username. This is a pattern that is slowly dying in favor of email.
                 var user = await UserManager.FindByNameAsync(username);
 
                 //if we don't find with username, try email
